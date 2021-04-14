@@ -18,14 +18,8 @@ public class EnemyMovementBehaviour : MonoBehaviour
 
     public GameObject Target
     {
-        get
-        {
-            return _target;
-        }
-        set 
-        {
-            _target = value;
-        }
+        get { return _target; }
+        set { _target = value; }
     }
 
     // Start is called before the first frame update
