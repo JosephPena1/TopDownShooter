@@ -7,6 +7,8 @@ public delegate void GameEvent();
 
 public class GameManagerBehaviour : MonoBehaviour
 {
+    private float _point = 0;
+
     public static GameEvent onGameOver;
 
     [SerializeField]
@@ -17,6 +19,12 @@ public class GameManagerBehaviour : MonoBehaviour
 
     [SerializeField]
     private static bool _gameOver = false;
+
+    public float Point
+    {
+        get { return _point; }
+        set { _point = value; }
+    }
 
     public static bool GameOver
     {
@@ -30,7 +38,10 @@ public class GameManagerBehaviour : MonoBehaviour
 
     public void QuitGame()
     {
-        Application.Quit();
+        if (UnityEditor.EditorApplication.isPlaying)
+            UnityEditor.EditorApplication.isPlaying = false;
+        else
+            Application.Quit();
     }
 
     // Update is called once per frame

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovementBehaviour : MonoBehaviour
 {
-    [Tooltip("How fast the p[layer will move.")]
+    [Tooltip("How fast the player will move.")]
     [SerializeField]
     private float _moveSpeed;
     [Tooltip("The current active camera. Used to get mouse position for rotation.")]
@@ -21,6 +21,8 @@ public class PlayerMovementBehaviour : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //Make player move while they're holding left mouse button
+
         //The direction the player is moving in is set to the input values for the horizontal and vertical axis
         Vector3 moveDir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         //The move direction is scaled by the movement speed to get velocity
@@ -42,6 +44,12 @@ public class PlayerMovementBehaviour : MonoBehaviour
             Quaternion rotation = Quaternion.LookRotation(lookDir);
             //Set the rotation to be the new rotation found
             _rigidbody.MoveRotation(rotation);
+
+            /*if (Input.GetMouseButton(0))
+            {
+                Vector3 movePos = new Vector3(hit.point.x, transform.position.y, hit.point.z);
+                _rigidbody.MovePosition(movePos);
+            }*/
         }
     }
 }
