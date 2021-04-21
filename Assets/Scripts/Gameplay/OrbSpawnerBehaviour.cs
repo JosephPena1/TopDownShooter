@@ -41,4 +41,10 @@ public class OrbSpawnerBehaviour : MonoBehaviour
             yield return new WaitForSeconds(_timeBetweenSpawns);
         }
     }
+
+    private void Update()
+    {
+        if (GameManagerBehaviour.GameOver)
+            gameObject.SetActive(false);
+    }
 }
