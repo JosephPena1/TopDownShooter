@@ -17,8 +17,6 @@ public class SpawnerBehaviour : MonoBehaviour
     [SerializeField]
     private GameObject _enemyTarget;
 
-    //Somehow make it active after a certain amount of time
-
     // Start is called before the first frame update
     void Start()
     {
@@ -40,11 +38,5 @@ public class SpawnerBehaviour : MonoBehaviour
             //Pause for the given time in seconds before resuming the function
             yield return new WaitForSeconds(_timeBetweenSpawns);
         }
-    }
-
-    public void Update()
-    {
-        if (Time.time > 20)
-            gameObject.SetActive(true);
     }
 }

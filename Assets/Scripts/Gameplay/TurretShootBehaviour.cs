@@ -30,7 +30,7 @@ public class TurretShootBehaviour : MonoBehaviour
         float targetDistance = (_target.transform.position - transform.position).magnitude;
 
         //if the gameobject has an [Player] tag and target is in range, lookat target
-        if (_target.CompareTag("Player") && targetDistance < _range && _bulletEmitter && _target)
+        if (_target.CompareTag("Player") && targetDistance < _range)
         {
             transform.LookAt(_target.transform);
 

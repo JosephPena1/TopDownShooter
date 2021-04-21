@@ -38,10 +38,7 @@ public class GameManagerBehaviour : MonoBehaviour
 
     public void QuitGame()
     {
-        if (UnityEditor.EditorApplication.isPlaying)
-            UnityEditor.EditorApplication.isPlaying = false;
-        else
-            Application.Quit();
+        Application.Quit();
     }
 
     // Update is called once per frame

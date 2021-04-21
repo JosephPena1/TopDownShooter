@@ -379,7 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5764961469ee32a40a8b9a1f4928599b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 0}
+  _target: {fileID: 1001671149930801744, guid: c43bcaa8f9b797d45b7d22fc774a8f49, type: 3}
   _bulletEmitter: {fileID: 15585299566446621}
   _shotSpeed: 60
   _range: 9

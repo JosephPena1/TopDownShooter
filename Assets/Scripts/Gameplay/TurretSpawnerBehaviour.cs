@@ -13,9 +13,9 @@ public class TurretSpawnerBehaviour : MonoBehaviour
     [Tooltip("If false, the spawner will stop instantiating clones of the reference.")]
     [SerializeField]
     private bool _canSpawn;
-    [Tooltip("The enemy object's target.")]
+    [Tooltip("The Turret object's target.")]
     [SerializeField]
-    private GameObject _enemyTarget;
+    private GameObject _target;
 
     // Start is called before the first frame update
     void Start()
@@ -34,9 +34,9 @@ public class TurretSpawnerBehaviour : MonoBehaviour
             //Creates a vector3 with a random x and z value;
             Vector3 randomPos = new Vector3(Random.Range(-50, 50), 1, Random.Range(-50, 50));
             //Create a new enemy in the scene
-            GameObject spawnedEnemy = Instantiate(_spawnObject, randomPos, new Quaternion());
-            //Set the enemy target to be the target the spawner was given
-            spawnedEnemy.GetComponent<TurretShootBehaviour>().Target = _enemyTarget;
+            GameObject spawnedTurret = Instantiate(_spawnObject, randomPos, new Quaternion());
+            //Set the turret target to be the target the spawner was given
+            spawnedTurret.GetComponent<TurretShootBehaviour>().Target = _target;
             //Pause for the given time in seconds before resuming the function
             yield return new WaitForSeconds(_timeBetweenSpawns);
         }

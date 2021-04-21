@@ -21,16 +21,6 @@ public class PlayerMovementBehaviour : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //Make player move while they're holding left mouse button
-
-        //The direction the player is moving in is set to the input values for the horizontal and vertical axis
-        Vector3 moveDir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        //The move direction is scaled by the movement speed to get velocity
-        Vector3 velocity = moveDir * _moveSpeed * Time.deltaTime;
-
-        //Call to make the rigidbody smoothly move to the desired position
-        _rigidbody.MovePosition(transform.position + velocity);
-
         //Create a ray that starts at a screen point
         RaycastHit hit;
         Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
@@ -38,18 +28,23 @@ public class PlayerMovementBehaviour : MonoBehaviour
         //Checks to see if the ray hits any object in the world
         if (Physics.Raycast(ray, out hit))
         {
-            //Find the direction the player should look towards
+            //Finds the direction the player should look towards
             Vector3 lookDir = new Vector3(hit.point.x, transform.position.y, hit.point.z) - transform.position;
             //Create a rotation from the player's forward to the look direction
             Quaternion rotation = Quaternion.LookRotation(lookDir);
             //Set the rotation to be the new rotation found
             _rigidbody.MoveRotation(rotation);
 
-            /*if (Input.GetMouseButton(0))
+            //Checks if Left mouse button is pressed or held
+            if (Input.GetMouseButton(0))
             {
+                //Finds the position of the mouse ray
                 Vector3 movePos = new Vector3(hit.point.x, transform.position.y, hit.point.z);
-                _rigidbody.MovePosition(movePos);
-            }*/
+                //Finds the position the player should go towards
+                Vector3 toTarget = (movePos - transform.position).normalized;
+                //Sets the position to be the current position plus the distance to target
+                _rigidbody.MovePosition(transform.position + toTarget * _moveSpeed);
+            }
         }
     }
 }
