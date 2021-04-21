@@ -32,7 +32,7 @@ public class TurretSpawnerBehaviour : MonoBehaviour
         while (_canSpawn)
         {
             //Creates a vector3 with a random x and z value;
-            Vector3 randomPos = new Vector3(Random.Range(-50, 50), 1, Random.Range(-50, 50));
+            Vector3 randomPos = new Vector3(Random.Range(-36, 36), 1, Random.Range(-36, 36));
             //Create a new enemy in the scene
             GameObject spawnedTurret = Instantiate(_spawnObject, randomPos, new Quaternion());
             //Set the turret target to be the target the spawner was given
