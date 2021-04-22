@@ -15,10 +15,7 @@ public class BulletBehaviour : MonoBehaviour
 
     public Rigidbody Rigidbody
     {
-        get
-        {
-            return _rigidbody;
-        }
+        get { return _rigidbody; }
     }
 
     public float Damage 

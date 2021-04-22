@@ -42,6 +42,7 @@ public class OrbSpawnerBehaviour : MonoBehaviour
         }
     }
 
+    //Update is called once per frame
     private void Update()
     {
         if (GameManagerBehaviour.GameOver)

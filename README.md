@@ -1,7 +1,8 @@
 ### Cross Platform Assessment
 
 To play the game you can download it [1], or play it in your browser [2]
-1. [Insert download link]
+
+1. https://github.com/JosephPena1/TopDownShooter/releases/download/v0.6/TestLightingProj.zip
 2. https://josephpena1.github.io/TopDownShooter/Player/
 
 If you download the game open the "TestLightingProj" folder and double-click "TestLightingProj.exe" to run the game.
