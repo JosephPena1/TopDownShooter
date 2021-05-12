@@ -36,7 +36,7 @@ public class PlayerMovementBehaviour : MonoBehaviour
             _rigidbody.MoveRotation(rotation);
 
             //Checks if Left mouse button is pressed or held
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButton(1))
             {
                 //Finds the position of the mouse ray
                 Vector3 movePos = new Vector3(hit.point.x, transform.position.y, hit.point.z);
